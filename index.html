@@ -1,0 +1,2047 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Raxilo Tech — Reviews, Compare &amp; Reselling Deals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4f7fc;
+      --surface: #ffffff;
+      --surface-elevated: #e8effa;
+      --text: #0b152b;
+      --text-muted: #475569;
+      --border: #cbd5e1;
+      --blue-deep: #0b1f4d;
+      --blue-primary: #0b2e7a;
+      --blue-bright: #2563eb;
+      --orange: #ff6b00;
+      --orange-hover: #e65f00;
+      --orange-soft: rgba(255, 107, 0, 0.12);
+      --amazon-bg: #ff9900;
+      --amazon-text: #111827;
+      --flipkart-bg: #2874f0;
+      --whatsapp-bg: #16a34a;
+      --winner-gold: #f59e0b;
+      --danger: #dc2626;
+      --shadow: 0 8px 24px rgba(11, 31, 77, 0.08);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #060c1a;
+      --surface: #0d162b;
+      --surface-elevated: #15223d;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #23355b;
+      --blue-primary: #3b82f6;
+      --shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding-bottom: 92px;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: inherit;
+      transition: transform 0.15s ease, opacity 0.15s ease, background 0.2s ease;
+    }
+    button:active { transform: scale(0.97); }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* Top Header */
+    .top-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 12px 0;
+    }
+
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      background: linear-gradient(135deg, #0b2e7a, #1e40af);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(11, 46, 122, 0.35);
+    }
+
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    .brand-title span { color: var(--orange); }
+    .brand-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-btn {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--surface-elevated);
+      display: grid;
+      place-items: center;
+      color: var(--text);
+    }
+
+    .badge-dot {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 5px;
+      border-radius: 99px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      display: grid;
+      place-items: center;
+    }
+
+    .search-bar-wrap {
+      margin-top: 12px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 46px;
+      padding: 0 42px 0 42px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--surface-elevated);
+      color: var(--text);
+      font-size: 0.92rem;
+      outline: none;
+    }
+    .search-input:focus { border-color: var(--orange); }
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--orange);
+      pointer-events: none;
+    }
+    .clear-search {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: var(--text-muted);
+    }
+
+    .category-chips {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-top: 10px;
+      scrollbar-width: none;
+    }
+    .category-chips::-webkit-scrollbar { display: none; }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+      white-space: nowrap;
+      min-height: 38px;
+    }
+    .chip.active {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: #fff;
+    }
+
+    /* Main Content */
+    .main-section { padding: 18px 0; }
+
+    /* Hero Banner */
+    .hero-banner {
+      border-radius: 22px;
+      background: linear-gradient(125deg, #060c1a 0%, #0b2e7a 60%, #1e3a8a 100%);
+      color: #fff;
+      padding: 24px 20px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .hero-banner::after {
+      content: "";
+      position: absolute;
+      right: -40px;
+      top: -40px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,107,0,0.38) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--orange);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      width: fit-content;
+    }
+    .hero-banner h1 { font-size: clamp(1.45rem, 3vw, 2rem); line-height: 1.15; }
+    .hero-banner p { color: rgba(255,255,255,0.82); font-size: 0.9rem; max-width: 560px; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 10px; z-index: 1; }
+
+    .btn-primary {
+      background: var(--orange);
+      color: #fff;
+      font-weight: 700;
+      padding: 11px 18px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      min-height: 44px;
+    }
+    .btn-primary:hover { background: var(--orange-hover); }
+
+    .btn-outline-light {
+      border: 1px solid rgba(255,255,255,0.55);
+      color: #fff;
+      font-weight: 600;
+      padding: 11px 18px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      min-height: 44px;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 0.84rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 44px;
+    }
+    .btn-outline.active {
+      border-color: var(--orange);
+      background: var(--orange-soft);
+      color: var(--orange);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 14px;
+      gap: 10px;
+    }
+    .section-header h2 { font-size: 1.25rem; }
+    .section-sub { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 16px;
+    }
+
+    /* Product Card */
+    .product-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .product-card.compared { border: 2px solid var(--orange); }
+
+    .card-media {
+      position: relative;
+      height: 185px;
+      background: linear-gradient(140deg, #0b1f4d 0%, #173a8a 60%, #1e293b 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      cursor: pointer;
+    }
+    .card-media img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .card-badges-top {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+    }
+    .card-badges-top > * { pointer-events: auto; }
+
+    .pill {
+      padding: 4px 9px;
+      border-radius: 8px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .pill-blue { background: rgba(37, 99, 235, 0.92); color: #fff; }
+    .pill-orange { background: var(--orange); color: #fff; }
+    .pill-green { background: var(--whatsapp-bg); color: #fff; }
+    .pill-gold { background: var(--winner-gold); color: #111827; }
+
+    .bookmark-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.48);
+      color: #fff;
+      display: grid;
+      place-items: center;
+    }
+    .bookmark-btn.saved { color: var(--orange); }
+
+    .card-price-bar {
+      position: absolute;
+      bottom: 10px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+    .price-box {
+      background: rgba(6, 12, 26, 0.82);
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 10px;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .price-now { font-weight: 700; font-size: 0.98rem; }
+    .price-old { font-size: 0.75rem; opacity: 0.65; text-decoration: line-through; }
+
+    .card-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+    .brand-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--orange);
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .product-title {
+      font-size: 1.12rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .product-tagline {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+
+    .rating-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+    .stars {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      color: var(--winner-gold);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .stars span.score-text { color: var(--text); margin-left: 4px; }
+    .lab-pill {
+      font-size: 0.72rem;
+      padding: 4px 8px;
+      border-radius: 8px;
+      background: var(--surface-elevated);
+      color: var(--blue-primary);
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .specs-box {
+      background: var(--surface-elevated);
+      border-radius: 12px;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-size: 0.78rem;
+    }
+    .spec-line {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .spec-line strong { color: var(--text-muted); font-weight: 600; flex-shrink: 0; }
+
+    .card-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 4px;
+    }
+    .card-actions .btn-primary { flex: 1; }
+
+    /* Affiliate Buttons */
+    .affiliate-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .affiliate-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .btn-amazon {
+      background: var(--amazon-bg);
+      color: var(--amazon-text);
+      font-weight: 700;
+      padding: 10px 12px;
+      border-radius: 11px;
+      font-size: 0.84rem;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .btn-flipkart {
+      background: var(--flipkart-bg);
+      color: #fff;
+      font-weight: 700;
+      padding: 10px 12px;
+      border-radius: 11px;
+      font-size: 0.84rem;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .btn-whatsapp {
+      background: var(--orange);
+      color: #fff;
+      font-weight: 700;
+      padding: 12px 14px;
+      border-radius: 11px;
+      font-size: 0.88rem;
+      min-height: 46px;
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-whatsapp .resell-tag {
+      background: rgba(255,255,255,0.22);
+      padding: 2px 7px;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Compare Screen */
+    .verdict-banner {
+      background: rgba(245, 158, 11, 0.14);
+      border: 1.5px solid var(--winner-gold);
+      border-radius: 16px;
+      padding: 14px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .verdict-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--winner-gold);
+      color: #111827;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .compare-slots {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .compare-slot-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+      position: relative;
+    }
+    .compare-slot-card.winner { border: 2px solid var(--winner-gold); }
+    .compare-slot-card.empty {
+      border: 1.5px dashed var(--orange);
+      background: var(--orange-soft);
+      justify-content: center;
+      min-height: 205px;
+      cursor: pointer;
+    }
+    .compare-slot-top {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .slot-thumb {
+      width: 100%;
+      height: 72px;
+      border-radius: 10px;
+      background: linear-gradient(140deg, #0b1f4d, #173a8a);
+      display: grid;
+      place-items: center;
+      padding: 6px;
+    }
+
+    .compare-matrix {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+    .matrix-row {
+      padding: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .matrix-row:last-child { border-bottom: none; }
+    .matrix-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--orange);
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 8px;
+    }
+    .matrix-cells {
+      display: grid;
+      gap: 8px;
+    }
+    .matrix-cell {
+      background: var(--surface-elevated);
+      border-radius: 10px;
+      padding: 8px;
+      font-size: 0.78rem;
+    }
+    .matrix-cell.best {
+      background: var(--orange-soft);
+      border: 1px solid rgba(255, 107, 0, 0.35);
+      font-weight: 600;
+    }
+    .best-tag {
+      display: block;
+      font-size: 0.66rem;
+      font-weight: 700;
+      color: var(--orange);
+      margin-bottom: 2px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Floating Compare Tray */
+    .compare-tray {
+      position: fixed;
+      bottom: 82px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 32px);
+      max-width: 580px;
+      background: var(--blue-deep);
+      color: #fff;
+      border: 1px solid rgba(255, 107, 0, 0.55);
+      border-radius: 16px;
+      padding: 10px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+      z-index: 35;
+    }
+
+    /* Bottom Navigation */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 45;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
+    }
+    .bottom-nav-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 4px;
+    }
+    .nav-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      padding: 6px 4px;
+      border-radius: 12px;
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      font-weight: 600;
+      min-height: 52px;
+    }
+    .nav-item.active {
+      color: var(--orange);
+      background: var(--orange-soft);
+    }
+    .nav-badge {
+      position: absolute;
+      top: 4px;
+      right: 18%;
+      background: var(--orange);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 99px;
+    }
+
+    /* Modals */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      background: rgba(6, 12, 26, 0.72);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0;
+    }
+    .modal-backdrop.open { display: flex; }
+
+    @media (min-width: 680px) {
+      .modal-backdrop { align-items: center; padding: 20px; }
+    }
+
+    .modal-sheet {
+      background: var(--surface);
+      color: var(--text);
+      width: 100%;
+      max-width: 660px;
+      max-height: 92vh;
+      overflow-y: auto;
+      border-radius: 24px 24px 0 0;
+      border: 1px solid var(--border);
+      padding: 18px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+    @media (min-width: 680px) {
+      .modal-sheet { border-radius: 24px; }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .score-bar-wrap { margin-bottom: 8px; }
+    .score-bar-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      margin-bottom: 4px;
+    }
+    .score-track {
+      height: 8px;
+      border-radius: 99px;
+      background: var(--surface-elevated);
+      overflow: hidden;
+    }
+    .score-fill {
+      height: 100%;
+      background: var(--orange);
+      border-radius: 99px;
+    }
+
+    .pros-cons-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 14px 0;
+    }
+    @media (max-width: 520px) { .pros-cons-grid { grid-template-columns: 1fr; } }
+    .pros-box {
+      background: rgba(22, 163, 74, 0.1);
+      border-radius: 14px;
+      padding: 12px;
+      font-size: 0.82rem;
+    }
+    .cons-box {
+      background: rgba(220, 38, 38, 0.1);
+      border-radius: 14px;
+      padding: 12px;
+      font-size: 0.82rem;
+    }
+
+    /* Profile & Admin Cards */
+    .panel-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .input-field, .textarea-field {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface-elevated);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.88rem;
+      outline: none;
+    }
+    .textarea-field {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      min-height: 210px;
+      resize: vertical;
+    }
+
+    .toast {
+      position: fixed;
+      top: 76px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--blue-deep);
+      color: #fff;
+      border: 1px solid var(--orange);
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      z-index: 80;
+      display: none;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+    .toast.show { display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header -->
+  <header class="top-header">
+    <div class="container">
+      <div class="header-row">
+        <div class="brand-wrap" onclick="switchTab('home')">
+          <div class="brand-logo" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M4 21V3H15.5L19.5 7V11.5L14.5 14L20 21H14.8L10.2 14.5H8.5V21H4Z" fill="white"/>
+              <rect x="8.5" y="6.8" width="6.2" height="4.2" rx="1" fill="#0B2E7A"/>
+              <path d="M3.5 20.5L11 10.5H15L20.5 3.5L13 12.8H9L3.5 20.5Z" fill="#FF6B00"/>
+            </svg>
+          </div>
+          <div>
+            <div class="brand-title font-display">RAXILO <span>TECH</span></div>
+            <div class="brand-sub">Reviews • Compare • Deals</div>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="icon-btn" onclick="switchTab('compare')" aria-label="Open Compare">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/>
+            </svg>
+            <span class="badge-dot" id="headerCompareBadge" style="display:none;">0</span>
+          </button>
+          <button class="icon-btn" onclick="toggleTheme()" id="themeToggleBtn" aria-label="Toggle Dark/Light Theme">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="searchFilterArea">
+        <div class="search-bar-wrap">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+          </svg>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search phones, laptops, gadgets, chipsets…" oninput="handleSearch(this.value)" />
+          <button class="clear-search" id="clearSearchBtn" style="display:none;" onclick="clearSearch()" aria-label="Clear search">✕</button>
+        </div>
+
+        <div class="category-chips" id="categoryChips">
+          <button class="chip active" data-cat="ALL" onclick="selectCategory('ALL')">All</button>
+          <button class="chip" data-cat="MOBILES" onclick="selectCategory('MOBILES')">Mobiles</button>
+          <button class="chip" data-cat="LAPTOPS" onclick="selectCategory('LAPTOPS')">Laptops</button>
+          <button class="chip" data-cat="GADGETS" onclick="selectCategory('GADGETS')">Gadgets</button>
+          <button class="chip" data-cat="BEST_DEALS" onclick="selectCategory('BEST_DEALS')">Best Deals</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main View -->
+  <main class="container main-section" id="appMain"></main>
+
+  <!-- Floating Compare Tray -->
+  <div class="compare-tray" id="compareTray" style="display:none;">
+    <span id="compareTrayText" style="font-size:0.86rem;font-weight:600;">2 devices ready to compare</span>
+    <button class="btn-primary" style="min-height:36px;padding:7px 14px;" onclick="switchTab('compare')">Compare Now →</button>
+  </div>
+
+  <!-- Bottom Navigation Bar -->
+  <nav class="bottom-nav" aria-label="Primary Navigation">
+    <div class="bottom-nav-inner">
+      <button class="nav-item active" data-tab="home" onclick="switchTab('home')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>Home</span>
+      </button>
+      <button class="nav-item" data-tab="reviews" onclick="switchTab('reviews')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span>Reviews</span>
+      </button>
+      <button class="nav-item" data-tab="compare" onclick="switchTab('compare')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+        <span>Compare</span>
+        <span class="nav-badge" id="navCompareBadge" style="display:none;">0</span>
+      </button>
+      <button class="nav-item" data-tab="deals" onclick="switchTab('deals')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+        <span>Deals</span>
+        <span class="nav-badge" id="navDealsBadge">0</span>
+      </button>
+      <button class="nav-item" data-tab="profile" onclick="switchTab('profile')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>Profile</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Product Review & Monetization Modal -->
+  <div class="modal-backdrop" id="detailModal" onclick="if(event.target===this) closeDetailModal()">
+    <div class="modal-sheet" id="detailModalContent"></div>
+  </div>
+
+  <!-- Compare Slot Picker Modal -->
+  <div class="modal-backdrop" id="pickerModal" onclick="if(event.target===this) closePickerModal()">
+    <div class="modal-sheet" id="pickerModalContent"></div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toastBox"></div>
+
+  <script>
+    /* =========================================================================
+       1. EASY-TO-EDIT PRODUCT CATALOG JSON ARRAY
+       Add new phones, laptops, gadgets, prices, and affiliate links below.
+       Optional: set "imageUrl": "https://..." to use real photo URLs instead of SVG art.
+       ========================================================================= */
+    const DEFAULT_PRODUCTS = [
+      {
+        id: "rax-phone-01",
+        name: "Galaxy S25 Ultra",
+        brand: "Samsung",
+        category: "MOBILES",
+        imageUrl: "",
+        rating: 4.8,
+        reviewCount: 342,
+        priceInr: 124999,
+        originalPriceInr: 134999,
+        resellPriceInr: 117500,
+        isBestDeal: true,
+        tagline: "Titanium flagship with 200MP periscope optics & Galaxy AI",
+        specs: {
+          display: "6.9\" QHD+ Dynamic AMOLED 2X, 120Hz (2600 nits)",
+          processor: "Snapdragon 8 Elite (3nm)",
+          ramStorage: "12GB RAM / 256GB UFS 4.0",
+          camera: "200MP Main + 50MP 5x Tele + 50MP UW",
+          battery: "5000 mAh, 45W Fast + 15W Wireless"
+        },
+        scores: { display: 97, processor: 98, memory: 92, camera: 97, battery: 89, value: 85 },
+        reviewSummary: "The Galaxy S25 Ultra sets the benchmark for Android flagships. Its anti-reflective 6.9-inch LTPO panel stays sharp outdoors, while the Snapdragon 8 Elite sustains 120fps gaming with cool thermals.",
+        videoReviewUrl: "https://www.youtube.com/results?search_query=Samsung+Galaxy+S25+Ultra+Review",
+        pros: ["Best-in-class anti-reflective QHD+ AMOLED", "Versatile 200MP + dual-telephoto camera", "7 years of OS updates + built-in S-Pen"],
+        cons: ["45W charging trails 100W rivals", "Premium flagship price point"],
+        amazonUrl: "https://www.amazon.in/s?k=Samsung+Galaxy+S25+Ultra&tag=raxilotech-21",
+        flipkartUrl: "https://www.flipkart.com/search?q=Samsung+Galaxy+S25+Ultra&affid=raxilotech",
+        whatsappNumber: "919876543210"
+      },
+      {
+        id: "rax-phone-02",
+        name: "iPhone 16 Pro Max",
+        brand: "Apple",
+        category: "MOBILES",
+        imageUrl: "",
+        rating: 4.9,
+        reviewCount: 518,
+        priceInr: 139900,
+        originalPriceInr: 144900,
+        resellPriceInr: 132000,
+        isBestDeal: false,
+        tagline: "A18 Pro silicon powerhouse with 4K 120fps Dolby Vision video",
+        specs: {
+          display: "6.9\" Super Retina XDR ProMotion, 120Hz",
+          processor: "Apple A18 Pro (3nm)",
+          ramStorage: "8GB RAM / 256GB NVMe",
+          camera: "48MP Fusion + 48MP UW + 12MP 5x Tetraprism",
+          battery: "4685 mAh, 33h Video, MagSafe 25W"
+        },
+        scores: { display: 96, processor: 99, memory: 88, camera: 98, battery: 94, value: 80 },
+        reviewSummary: "Unbeatable for mobile videography and multi-day endurance. The A18 Pro delivers console-grade GPU output, and battery efficiency leads our Raxilo Lab drain test.",
+        videoReviewUrl: "https://www.youtube.com/results?search_query=iPhone+16+Pro+Max+Review",
+        pros: ["Industry-leading 4K120 ProRes video capture", "Exceptional 2-day battery endurance", "High long-term resale value"],
+        cons: ["Steep storage upgrade tiers", "Wired charging takes ~95 mins"],
+        amazonUrl: "https://www.amazon.in/s?k=iPhone+16+Pro+Max&tag=raxilotech-21",
+        flipkartUrl: "https://www.flipkart.com/search?q=iPhone+16+Pro+Max&affid=raxilotech",
+        whatsappNumber: "919876543210"
+      },
+      {
+        id: "rax-phone-03",
+        name: "OnePlus 13 5G",
+        brand: "OnePlus",
+        category: "MOBILES",
+        imageUrl: "",
+        rating: 4.7,
+        reviewCount: 276,
+        priceInr: 69999,
+        originalPriceInr: 76999,
+        resellPriceInr: 64999,
+        isBestDeal: true,
+        tagline: "6000mAh silicon-carbon battery & 100W SuperVOOC flagship killer",
+        specs: {
+          display: "6.82\" 2K ProXDR LTPO AMOLED, 120Hz (4500 nits)",
+          processor: "Snapdragon 8 Elite (3nm)",
+          ramStorage: "16GB LPDDR5X / 512GB UFS 4.0",
+          camera: "50MP LYT-808 + 50MP 3x Periscope + 50MP UW",
+          battery: "6000 mAh, 100W Wired + 50W Wireless"
+        },
+        scores: { display: 95, processor: 98, memory: 97, camera: 90, battery: 99, value: 97 },
+        reviewSummary: "OnePlus 13 dominates price-to-performance. Packing a 6000mAh battery inside an IP69 frame, it charges 0-100% in 36 minutes and ships with 16GB RAM at half the Ultra price.",
+        videoReviewUrl: "https://www.youtube.com/results?search_query=OnePlus+13+Review",
+        pros: ["Massive 6000mAh cell + 100W charger included", "16GB/512GB value king", "IP68 + IP69 rating"],
+        cons: ["6x digital zoom softens at night", "Curved glass edge glare"],
+        amazonUrl: "https://www.amazon.in/s?k=OnePlus+13+5G&tag=raxilotech-21",
+        flipkartUrl: "https://www.flipkart.com/search?q=OnePlus+13+5G&affid=raxilotech",
+        whatsappNumber: "919876543210"
+      },
+      {
+        id: "rax-phone-04",
+        name: "Pixel 9 Pro",
+        brand: "Google",
+        category: "MOBILES",
+        imageUrl: "",
+        rating: 4.6,
+        reviewCount: 194,
+        priceInr: 94999,
+        originalPriceInr: 109999,
+        resellPriceInr: 88500,
+        isBestDeal: true,
+        tagline: "Compact Pro flagship with computational still photography mastery",
+        specs: {
+          display: "6.3\" Super Actua LTPO OLED, 120Hz (3000 nits)",
+          processor: "Google Tensor G4",
+          ramStorage: "16GB RAM / 256GB UFS 3.1",
+          camera: "50MP Octa PD + 48MP 5x Tele + 48MP UW",
+          battery: "4700 mAh, 27W Wired + 21W Wireless"
+        },
+        scores: { display: 94, processor: 84, memory: 91, camera: 96, battery: 86, value: 88 },
+        reviewSummary: "For fans of one-handed flagships, Pixel 9 Pro nails ergonomics without dropping telephoto optics. Still HDR and Night Sight remain peerless.",
+        videoReviewUrl: "https://www.youtube.com/results?search_query=Google+Pixel+9+Pro+Review",
+        pros: ["Ergonomic 6.3-inch pro build", "Unmatched point-and-shoot HDR", "Clean Android + 7yr updates"],
+        cons: ["Tensor G4 trails in heavy 3D gaming", "27W wired speed is modest"],
+        amazonUrl: "https://www.amazon.in/s?k=Google+Pixel+9+Pro&tag=raxilotech-21",
+        flipkartUrl: "https://www.flipkart.com/search?q=Google+Pixel+9+Pro&affid=raxilotech",
+        whatsappNumber: "919876543210"
+      },
+      {
+        id: "rax-laptop-01",
+        name: "MacBook Pro 14 M4 Pro",
+        brand: "Apple",
+        category: "LAPTOPS",
+        imageUrl: "",
+        rating: 4.9,
+        reviewCount: 211,
+        priceInr: 189900,
+        originalPriceInr: 199900,
+        resellPriceInr: 179000,
+        isBestDeal: false,
+        tagline: "Reference mini-LED creator workstation with 22-hour battery",
+        specs: {
+          display: "14.2\" Liquid Retina XDR mini-LED, 120Hz",
+          processor: "Apple M4 Pro (12-Core CPU / 16-Core GPU)",
+          ramStorage: "24GB Unified RAM / 512GB SSD",
+          camera: "12MP Center Stage Desk View",
+          battery: "72.4Wh, Up to 22 hrs, 96W MagSafe 3"
+        },
+        scores: { display: 99, processor: 99, memory: 94, camera: 88, battery: 98, value: 86 },
+        reviewSummary: "Tears through 4K multi-cam edits and heavy code builds silently on battery power. Thunderbolt 5 and XDR brightness make it our Editor's Choice.",
+        videoReviewUrl: "https://www.youtube.com/results?search_query=MacBook+Pro+14+M4+Pro+Review",
+        pros: ["Silent thermal efficiency on battery", "1600-nit HDR XDR screen", "Thunderbolt 5 I/O"],
+        cons: ["Expensive RAM upgrades", "Not for AAA Windows gaming"],
+        amazonUrl: "https://www.amazon.in/s?k=MacBook+Pro+14+M4+Pro&tag=raxilotech-21",
+        flipkartUrl: "https://www.flipkart.com/search?q=MacBook+Pro+14+M4+Pro&affid=raxilotech",
+        whatsappNumber: "919876543210"
+      },
+      {
+        id: "rax-laptop-02",
+        name: "ASUS ROG Zephyrus G16",
+        brand: "ASUS",
+        category: "LAPTOPS",
+        imageUrl: "",
+        rating: 4.7,
+        reviewCount: 148,
+        priceInr: 164990,
+        originalPriceInr: 189990,
+        resellPriceInr: 154500,
+        isBestDeal: true,
+        tagline: "CNC-milled ultrathin OLED powerhouse with RTX 4070 graphics",
+        specs: {
+          display: "16\" 2.5K Nebula OLED, 240Hz G-Sync",
+          processor: "Intel Core Ultra 9 + RTX 4070 8GB",
+          ramStorage: "32GB LPDDR5X / 1TB PCIe 4.0 SSD",
+          camera: "1080p FHD IR Windows Hello",
+          battery: "90Wh, 200W Slim + 100W USB-C PD"
+        },
+        scores: { display: 98, processor: 95, memory: 96, camera: 82, battery: 84, value: 91 },
+        reviewSummary: "At 1.85 kg, the Zephyrus G16 pairs a jaw-dropping 240Hz OLED screen with CNC aluminum rigidity and RTX 4070 muscle for creators and gamers.",
+        videoReviewUrl: "https://www.youtube.com/results?search_query=ROG+Zephyrus+G16+Review",
+        pros: ["240Hz 2.5K Pantone OLED panel", "32GB RAM + 1TB SSD standard", "Sleek metal chassis under 1.9kg"],
+        cons: ["Audible fans in Turbo mode", "Soldered RAM"],
+        amazonUrl: "https://www.amazon.in/s?k=ASUS+ROG+Zephyrus+G16&tag=raxilotech-21",
+        flipkartUrl: "https://www.flipkart.com/search?q=ASUS+ROG+Zephyrus+G16&affid=raxilotech",
+        whatsappNumber: "919876543210"
+      },
+      {
+        id: "rax-gadget-01",
+        name: "Sony WF-1000XM5",
+        brand: "Sony",
+        category: "GADGETS",
+        imageUrl: "",
+        rating: 4.7,
+        reviewCount: 412,
+        priceInr: 18990,
+        originalPriceInr: 24990,
+        resellPriceInr: 16800,
+        isBestDeal: true,
+        tagline: "Class-leading LDAC hi-res audio & dual-processor ANC earbuds",
+        specs: {
+          display: "LED Charge Ring + Touch Sensor Pods",
+          processor: "Integrated Processor V2 + QN2e",
+          ramStorage: "LDAC / AAC / SBC + Multipoint BT 5.3",
+          camera: "Bone-Conduction AI Call Mics",
+          battery: "24 hrs Total (8h Buds + 16h Case, Qi)"
+        },
+        scores: { display: 82, processor: 94, memory: 90, camera: 88, battery: 92, value: 95 },
+        reviewSummary: "With a massive deal price drop to ₹18,990, the WF-1000XM5 delivers unbeatable flight/metro noise cancellation and detailed LDAC audio.",
+        videoReviewUrl: "https://www.youtube.com/results?search_query=Sony+WF-1000XM5+Review",
+        pros: ["Top-tier ANC in compact shells", "Rich LDAC hi-res sound", "Strong reselling margin"],
+        cons: ["Foam tips wear over time", "Glossy shell feels slick"],
+        amazonUrl: "https://www.amazon.in/s?k=Sony+WF-1000XM5&tag=raxilotech-21",
+        flipkartUrl: "https://www.flipkart.com/search?q=Sony+WF-1000XM5&affid=raxilotech",
+        whatsappNumber: "919876543210"
+      },
+      {
+        id: "rax-gadget-02",
+        name: "Galaxy Watch Ultra",
+        brand: "Samsung",
+        category: "GADGETS",
+        imageUrl: "",
+        rating: 4.6,
+        reviewCount: 163,
+        priceInr: 49999,
+        originalPriceInr: 59999,
+        resellPriceInr: 45500,
+        isBestDeal: true,
+        tagline: "Grade 4 Titanium 10ATM adventure smartwatch with 3nm Exynos",
+        specs: {
+          display: "1.5\" Sapphire Super AMOLED (3000 nits)",
+          processor: "Exynos W1000 (3nm Penta-Core)",
+          ramStorage: "2GB RAM / 32GB Internal Storage",
+          camera: "BioActive Sensor + Dual-Freq GPS",
+          battery: "590 mAh, Up to 100 hrs Power Saving"
+        },
+        scores: { display: 95, processor: 93, memory: 91, camera: 92, battery: 90, value: 89 },
+        reviewSummary: "Built for endurance athletes and Android power users, running Wear OS 5 smoothly on 3nm silicon with dual-frequency GPS.",
+        videoReviewUrl: "https://www.youtube.com/results?search_query=Galaxy+Watch+Ultra+Review",
+        pros: ["3000-nit sapphire display", "10ATM titanium frame", "Snappy 3nm chip"],
+        cons: ["Chunky 47mm case for small wrists", "Full health suite needs Samsung phone"],
+        amazonUrl: "https://www.amazon.in/s?k=Samsung+Galaxy+Watch+Ultra&tag=raxilotech-21",
+        flipkartUrl: "https://www.flipkart.com/search?q=Samsung+Galaxy+Watch+Ultra&affid=raxilotech",
+        whatsappNumber: "919876543210"
+      }
+    ];
+
+    /* =========================================================================
+       2. APP STATE & PERSISTENCE
+       ========================================================================= */
+    const STORAGE_KEYS = {
+      PRODUCTS: "raxilo_products_v1",
+      THEME: "raxilo_theme_v1",
+      BOOKMARKS: "raxilo_bookmarks_v1",
+      WHATSAPP: "raxilo_whatsapp_v1"
+    };
+
+    let state = {
+      products: loadStoredProducts(),
+      tab: "home",
+      category: "ALL",
+      search: "",
+      reviewSort: "rating",
+      compareIds: [],
+      bookmarks: JSON.parse(localStorage.getItem(STORAGE_KEYS.BOOKMARKS) || "[]"),
+      whatsappOverride: localStorage.getItem(STORAGE_KEYS.WHATSAPP) || "",
+      theme: localStorage.getItem(STORAGE_KEYS.THEME) || "dark",
+      pickerSlot: null
+    };
+
+    // Pre-seed compare with top 2 phones
+    state.compareIds = state.products.filter(p => p.category === "MOBILES").slice(0, 2).map(p => p.id);
+
+    function loadStoredProducts() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEYS.PRODUCTS);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        }
+      } catch (e) {}
+      return JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
+    }
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem(STORAGE_KEYS.THEME, theme);
+      state.theme = theme;
+    }
+    applyTheme(state.theme);
+
+    function toggleTheme() {
+      applyTheme(state.theme === "dark" ? "light" : "dark");
+      showToast(`Switched to ${state.theme === "dark" ? "Dark" : "Light"} Mode`);
+      if (state.tab === "profile") render();
+    }
+
+    /* =========================================================================
+       3. HELPERS (FORMAT, ESCAPE, COMPOSITE SCORE, SVG ART)
+       ========================================================================= */
+    function escapeHtml(str) {
+      return String(str ?? "").replace(/[&<>"']/g, s => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;"
+      }[s]));
+    }
+
+    function formatInr(num) {
+      return "₹" + Number(num || 0).toLocaleString("en-IN");
+    }
+
+    function compositeScore(p) {
+      const s = p.scores || {};
+      return Math.round(((s.display||85) + (s.processor||85) + (s.memory||85) + (s.camera||85) + (s.battery||85) + (s.value||85)) / 6);
+    }
+
+    function discountPercent(p) {
+      if (p.originalPriceInr > p.priceInr) {
+        return Math.round(((p.originalPriceInr - p.priceInr) / p.originalPriceInr) * 100);
+      }
+      return 0;
+    }
+
+    function deviceArtworkHtml(p, size = 110) {
+      if (p.imageUrl && /^https?:\/\//i.test(p.imageUrl)) {
+        return `<img src="${escapeHtml(p.imageUrl)}" alt="${escapeHtml(p.name)}">`;
+      }
+      if (p.category === "LAPTOPS") {
+        return `
+          <svg width="${size * 1.25}" height="${size * 0.9}" viewBox="0 0 140 100" fill="none">
+            <rect x="20" y="10" width="100" height="62" rx="7" fill="#0F172A" stroke="#60A5FA" stroke-width="2.5"/>
+            <rect x="26" y="16" width="88" height="50" rx="4" fill="url(#lapGrad)"/>
+            <path d="M8 74H132L124 88H16L8 74Z" fill="#CBD5E1"/>
+            <rect x="56" y="77" width="28" height="4" rx="2" fill="#FF6B00"/>
+            <defs><linearGradient id="lapGrad" x1="26" y1="16" x2="114" y2="66" gradientUnits="userSpaceOnUse"><stop stop-color="#1E3A8A"/><stop offset="1" stop-color="#FF6B00" stop-opacity="0.7"/></linearGradient></defs>
+          </svg>`;
+      }
+      if (p.category === "GADGETS") {
+        return `
+          <svg width="${size}" height="${size}" viewBox="0 0 100 100" fill="none">
+            <rect x="24" y="24" width="52" height="52" rx="16" fill="#0F172A" stroke="#FF6B00" stroke-width="2.5"/>
+            <circle cx="50" cy="50" r="16" fill="#1E3A8A" stroke="#60A5FA" stroke-width="2"/>
+            <path d="M44 50L49 55L58 44" stroke="#FF6B00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>`;
+      }
+      return `
+        <svg width="${size * 0.85}" height="${size}" viewBox="0 0 90 110" fill="none">
+          <rect x="18" y="8" width="54" height="94" rx="12" fill="#091124" stroke="#60A5FA" stroke-width="2.5"/>
+          <rect x="23" y="14" width="44" height="82" rx="8" fill="url(#phGrad)"/>
+          <rect x="28" y="20" width="18" height="22" rx="5" fill="#0F172A" stroke="#FF6B00" stroke-width="1.5"/>
+          <circle cx="34" cy="27" r="3" fill="#60A5FA"/>
+          <circle cx="34" cy="36" r="3" fill="#FF6B00"/>
+          <defs><linearGradient id="phGrad" x1="23" y1="14" x2="67" y2="96" gradientUnits="userSpaceOnUse"><stop stop-color="#1D4ED8"/><stop offset="1" stop-color="#0B1F4D"/></linearGradient></defs>
+        </svg>`;
+    }
+
+    function renderStars(rating) {
+      const full = Math.floor(rating);
+      const half = rating - full >= 0.35;
+      let html = "";
+      for (let i = 0; i < 5; i++) {
+        if (i < full) html += "★";
+        else if (i === full && half) html += "★";
+        else html += "☆";
+      }
+      return `<div class="stars">${html} <span class="score-text">${Number(rating).toFixed(1)}/5</span></div>`;
+    }
+
+    function buildWhatsAppUrl(p) {
+      const num = (state.whatsappOverride || p.whatsappNumber || "919876543210").replace(/\D/g, "");
+      const msg = `Hi Raxilo Tech! I want to order via Reselling:\n• Product: ${p.brand} ${p.name}\n• Resell Price: ${formatInr(p.resellPriceInr)} (Listed: ${formatInr(p.priceInr)})\n• Specs: ${p.specs.ramStorage}\nPlease share stock & delivery details.`;
+      return `https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
+    }
+
+    function affiliateButtonsHtml(p) {
+      return `
+        <div class="affiliate-stack">
+          <div class="affiliate-row">
+            <a class="btn-amazon" href="${escapeHtml(p.amazonUrl)}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+              🛒 Buy on Amazon
+            </a>
+            <a class="btn-flipkart" href="${escapeHtml(p.flipkartUrl)}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+              🛍️ Buy on Flipkart
+            </a>
+          </div>
+          <a class="btn-whatsapp" href="${escapeHtml(buildWhatsAppUrl(p))}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+            💬 Order via WhatsApp (Reselling)
+            <span class="resell-tag">${formatInr(p.resellPriceInr)}</span>
+          </a>
+        </div>
+      `;
+    }
+
+    /* =========================================================================
+       4. FILTERING & COMPARISON ENGINE
+       ========================================================================= */
+    function getFilteredProducts() {
+      const q = state.search.trim().toLowerCase();
+      return state.products.filter(p => {
+        const catOk =
+          state.category === "ALL" ||
+          (state.category === "BEST_DEALS" ? p.isBestDeal : p.category === state.category);
+        const searchOk = !q ||
+          p.name.toLowerCase().includes(q) ||
+          p.brand.toLowerCase().includes(q) ||
+          p.tagline.toLowerCase().includes(q) ||
+          p.specs.processor.toLowerCase().includes(q) ||
+          p.specs.camera.toLowerCase().includes(q);
+        return catOk && searchOk;
+      });
+    }
+
+    function analyzeComparison(list) {
+      if (list.length < 2) {
+        return { winnerId: null, scores: {}, metricWinners: {}, verdict: "Select at least 2 smartphones/devices to view the side-by-side Raxilo Winner." };
+      }
+      const metrics = [
+        { key: "display", label: "Display", val: p => p.specs.display, score: p => p.scores.display },
+        { key: "processor", label: "Processor", val: p => p.specs.processor, score: p => p.scores.processor },
+        { key: "memory", label: "RAM / Storage", val: p => p.specs.ramStorage, score: p => p.scores.memory },
+        { key: "camera", label: "Camera", val: p => p.specs.camera, score: p => p.scores.camera },
+        { key: "battery", label: "Battery", val: p => p.specs.battery, score: p => p.scores.battery },
+        { key: "price", label: "Price", val: p => `${formatInr(p.priceInr)} (Resell ${formatInr(p.resellPriceInr)})`, score: p => -p.priceInr }
+      ];
+
+      const metricWinners = {};
+      metrics.forEach(m => {
+        const max = Math.max(...list.map(m.score));
+        metricWinners[m.key] = list.filter(p => m.score(p) === max).map(p => p.id);
+      });
+
+      const scores = {};
+      list.forEach(p => {
+        const s = p.scores;
+        scores[p.id] = Math.round(s.display * 0.18 + s.processor * 0.22 + s.memory * 0.14 + s.camera * 0.20 + s.battery * 0.16 + s.value * 0.10);
+      });
+
+      const sorted = [...list].sort((a, b) => (scores[b.id] - scores[a.id]) || (b.rating - a.rating));
+      const winner = sorted[0];
+      const winsCount = metrics.filter(m => metricWinners[m.key].includes(winner.id)).length;
+      return {
+        metrics,
+        winnerId: winner.id,
+        scores,
+        metricWinners,
+        verdict: `${winner.name} wins the Raxilo Lab Verdict (${scores[winner.id]}/100), leading in ${winsCount} of 6 categories.`
+      };
+    }
+
+    /* =========================================================================
+       5. INTERACTIONS
+       ========================================================================= */
+    function switchTab(tab) {
+      state.tab = tab;
+      document.querySelectorAll(".nav-item").forEach(el => {
+        el.classList.toggle("active", el.dataset.tab === tab);
+      });
+      document.getElementById("searchFilterArea").style.display =
+        (tab === "home" || tab === "reviews") ? "block" : "none";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      render();
+    }
+
+    function selectCategory(cat) {
+      state.category = cat;
+      document.querySelectorAll("#categoryChips .chip").forEach(el => {
+        el.classList.toggle("active", el.dataset.cat === cat);
+      });
+      render();
+    }
+
+    function handleSearch(val) {
+      state.search = val;
+      document.getElementById("clearSearchBtn").style.display = val ? "grid" : "none";
+      render();
+    }
+
+    function clearSearch() {
+      state.search = "";
+      document.getElementById("searchInput").value = "";
+      document.getElementById("clearSearchBtn").style.display = "none";
+      render();
+    }
+
+    function toggleCompare(id) {
+      if (state.compareIds.includes(id)) {
+        state.compareIds = state.compareIds.filter(x => x !== id);
+      } else {
+        if (state.compareIds.length >= 3) {
+          showToast("Compare supports up to 3 devices. Remove one first.");
+          return;
+        }
+        state.compareIds.push(id);
+      }
+      render();
+    }
+
+    function toggleBookmark(id) {
+      if (state.bookmarks.includes(id)) {
+        state.bookmarks = state.bookmarks.filter(x => x !== id);
+      } else {
+        state.bookmarks.push(id);
+        showToast("Saved to your Raxilo Bookmarks");
+      }
+      localStorage.setItem(STORAGE_KEYS.BOOKMARKS, JSON.stringify(state.bookmarks));
+      render();
+    }
+
+    function showToast(msg) {
+      const box = document.getElementById("toastBox");
+      box.textContent = msg;
+      box.classList.add("show");
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => box.classList.remove("show"), 2400);
+    }
+
+    /* =========================================================================
+       6. MODALS (DETAIL REVIEW & COMPARE PICKER)
+       ========================================================================= */
+    function openDetailModal(id) {
+      const p = state.products.find(x => x.id === id);
+      if (!p) return;
+      const score = compositeScore(p);
+      const isCompared = state.compareIds.includes(p.id);
+      const modal = document.getElementById("detailModalContent");
+      modal.innerHTML = `
+        <div class="modal-header">
+          <div>
+            <span class="brand-label">${escapeHtml(p.brand)}</span>
+            <h3>${escapeHtml(p.name)}</h3>
+          </div>
+          <button class="icon-btn" onclick="closeDetailModal()" aria-label="Close">✕</button>
+        </div>
+
+        <div class="card-media" style="border-radius:16px;margin-bottom:14px;cursor:default;">
+          ${deviceArtworkHtml(p, 125)}
+          <div class="card-badges-top">
+            <span class="pill pill-orange">LAB SCORE ${score}/100</span>
+            <button class="btn-outline" style="background:rgba(0,0,0,0.55);color:#fff;border-color:rgba(255,255,255,0.35);min-height:36px;padding:6px 12px;" onclick="toggleCompare('${p.id}');openDetailModal('${p.id}')">
+              ${isCompared ? "✓ In Compare" : "+ Compare"}
+            </button>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
+          ${renderStars(p.rating)}
+          <div>
+            <strong style="font-size:1.25rem;">${formatInr(p.priceInr)}</strong>
+            ${p.originalPriceInr > p.priceInr ? `<span class="price-old" style="margin-left:6px;">${formatInr(p.originalPriceInr)}</span>` : ""}
+          </div>
+        </div>
+
+        <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:14px;">${escapeHtml(p.reviewSummary)}</p>
+
+        <a class="btn-outline" href="${escapeHtml(p.videoReviewUrl)}" target="_blank" rel="noopener noreferrer" style="width:100%;text-decoration:none;margin-bottom:14px;">
+          ▶ Watch Hands-On Video Review
+        </a>
+
+        <div class="pros-cons-grid">
+          <div class="pros-box">
+            <strong style="color:var(--whatsapp-bg);display:block;margin-bottom:6px;">PROS</strong>
+            <ul style="padding-left:16px;display:grid;gap:4px;">
+              ${(p.pros || []).map(x => `<li>${escapeHtml(x)}</li>`).join("")}
+            </ul>
+          </div>
+          <div class="cons-box">
+            <strong style="color:var(--danger);display:block;margin-bottom:6px;">CONS</strong>
+            <ul style="padding-left:16px;display:grid;gap:4px;">
+              ${(p.cons || []).map(x => `<li>${escapeHtml(x)}</li>`).join("")}
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <h4 style="margin-bottom:8px;">Lab Benchmark Scores</h4>
+          ${[
+            ["Display", p.scores.display],
+            ["Processor", p.scores.processor],
+            ["RAM / Storage", p.scores.memory],
+            ["Camera", p.scores.camera],
+            ["Battery", p.scores.battery],
+            ["Value", p.scores.value]
+          ].map(([lbl, val]) => `
+            <div class="score-bar-wrap">
+              <div class="score-bar-top"><span>${lbl}</span><strong class="font-mono" style="color:var(--orange)">${val}/100</strong></div>
+              <div class="score-track"><div class="score-fill" style="width:${val}%"></div></div>
+            </div>
+          `).join("")}
+        </div>
+
+        <div class="specs-box" style="margin-bottom:16px;">
+          <div class="spec-line"><strong>Display:</strong> <span>${escapeHtml(p.specs.display)}</span></div>
+          <div class="spec-line"><strong>Processor:</strong> <span>${escapeHtml(p.specs.processor)}</span></div>
+          <div class="spec-line"><strong>Memory:</strong> <span>${escapeHtml(p.specs.ramStorage)}</span></div>
+          <div class="spec-line"><strong>Camera:</strong> <span>${escapeHtml(p.specs.camera)}</span></div>
+          <div class="spec-line"><strong>Battery:</strong> <span>${escapeHtml(p.specs.battery)}</span></div>
+        </div>
+
+        ${affiliateButtonsHtml(p)}
+      `;
+      document.getElementById("detailModal").classList.add("open");
+    }
+
+    function closeDetailModal() {
+      document.getElementById("detailModal").classList.remove("open");
+    }
+
+    function openPickerModal(slotIndex) {
+      state.pickerSlot = slotIndex;
+      const box = document.getElementById("pickerModalContent");
+      box.innerHTML = `
+        <div class="modal-header">
+          <h3>Select Device for Slot ${slotIndex + 1}</h3>
+          <button class="icon-btn" onclick="closePickerModal()" aria-label="Close">✕</button>
+        </div>
+        <div style="display:grid;gap:10px;">
+          ${state.products.map(p => {
+            const used = state.compareIds.includes(p.id);
+            return `
+              <button class="panel-card" style="flex-direction:row;align-items:center;margin:0;opacity:${used ? 0.55 : 1};text-align:left;"
+                ${used ? "disabled" : `onclick="assignCompareSlot(${slotIndex}, '${p.id}')"`}>
+                <div class="slot-thumb" style="width:58px;height:58px;flex-shrink:0;">${deviceArtworkHtml(p, 42)}</div>
+                <div style="flex:1;min-width:0;">
+                  <strong>${escapeHtml(p.brand)} ${escapeHtml(p.name)}</strong>
+                  <div style="font-size:0.78rem;color:var(--text-muted);">${formatInr(p.priceInr)} • ${escapeHtml(p.specs.processor)}</div>
+                </div>
+                <span class="pill ${used ? "pill-orange" : "pill-blue"}">${used ? "Selected" : "Pick"}</span>
+              </button>
+            `;
+          }).join("")}
+        </div>
+      `;
+      document.getElementById("pickerModal").classList.add("open");
+    }
+
+    function closePickerModal() {
+      document.getElementById("pickerModal").classList.remove("open");
+    }
+
+    function assignCompareSlot(slotIndex, id) {
+      if (state.compareIds.includes(id)) return;
+      if (slotIndex < state.compareIds.length) state.compareIds[slotIndex] = id;
+      else if (state.compareIds.length < 3) state.compareIds.push(id);
+      closePickerModal();
+      render();
+    }
+
+    /* =========================================================================
+       7. RENDERERS FOR ALL 5 TABS
+       ========================================================================= */
+    function productCardHtml(p) {
+      const isCompared = state.compareIds.includes(p.id);
+      const isSaved = state.bookmarks.includes(p.id);
+      const disc = discountPercent(p);
+      return `
+        <article class="product-card ${isCompared ? "compared" : ""}">
+          <div class="card-media" onclick="openDetailModal('${p.id}')">
+            ${deviceArtworkHtml(p, 115)}
+            <div class="card-badges-top">
+              <div style="display:flex;gap:6px;">
+                <span class="pill pill-blue">${escapeHtml(p.category)}</span>
+                ${disc > 0 ? `<span class="pill pill-orange">-${disc}% DEAL</span>` : ""}
+              </div>
+              <button class="bookmark-btn ${isSaved ? "saved" : ""}" onclick="event.stopPropagation();toggleBookmark('${p.id}')" aria-label="Bookmark">
+                ${isSaved ? "★" : "☆"}
+              </button>
+            </div>
+            <div class="card-price-bar">
+              <div class="price-box">
+                <span class="price-now">${formatInr(p.priceInr)}</span>
+                ${p.originalPriceInr > p.priceInr ? `<span class="price-old">${formatInr(p.originalPriceInr)}</span>` : ""}
+              </div>
+              <span class="pill pill-green">Resell ${formatInr(p.resellPriceInr)}</span>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div>
+              <div class="brand-label">${escapeHtml(p.brand)}</div>
+              <h3 class="product-title" onclick="openDetailModal('${p.id}')">${escapeHtml(p.name)}</h3>
+              <p class="product-tagline">${escapeHtml(p.tagline)}</p>
+            </div>
+
+            <div class="rating-row">
+              ${renderStars(p.rating)}
+              <span class="lab-pill">Lab ${compositeScore(p)}/100</span>
+            </div>
+
+            <div class="specs-box">
+              <div class="spec-line"><strong>Processor:</strong> <span>${escapeHtml(p.specs.processor)}</span></div>
+              <div class="spec-line"><strong>Camera:</strong> <span>${escapeHtml(p.specs.camera)}</span></div>
+              <div class="spec-line"><strong>Battery:</strong> <span>${escapeHtml(p.specs.battery)}</span></div>
+            </div>
+
+            <div class="card-actions">
+              <button class="btn-primary" onclick="openDetailModal('${p.id}')">▶ Read/Watch Review</button>
+              <button class="btn-outline ${isCompared ? "active" : ""}" onclick="toggleCompare('${p.id}')">
+                ${isCompared ? "☑ Compared" : "☐ Compare"}
+              </button>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderHome() {
+      const list = getFilteredProducts();
+      const showHero = !state.search && state.category === "ALL";
+      return `
+        ${showHero ? `
+          <section class="hero-banner">
+            <span class="hero-tag">⚡ 2026 RAXILO LAB GUIDE</span>
+            <h1>Honest Lab Reviews.<br>Unbeatable Resell Deals.</h1>
+            <p>Compare flagship smartphones side-by-side, inspect deep camera &amp; battery benchmarks, or order wholesale reselling stock via WhatsApp.</p>
+            <div class="hero-ctas">
+              <button class="btn-primary" onclick="switchTab('compare')">⇄ Compare Phones</button>
+              <button class="btn-outline-light" onclick="switchTab('deals')">🏷️ View Resell Deals</button>
+            </div>
+          </section>
+        ` : ""}
+
+        <div class="section-header">
+          <div>
+            <h2>${state.search ? `Results for "${escapeHtml(state.search)}"` : state.category === "ALL" ? "Latest Tech Reviews & Picks" : `${state.category.replace("_", " ")}`}</h2>
+            <div class="section-sub">${list.length} verified devices • Lab tested &amp; priced</div>
+          </div>
+          ${(state.search || state.category !== "ALL") ? `<button class="btn-outline" style="min-height:36px;" onclick="clearSearch();selectCategory('ALL')">Reset</button>` : ""}
+        </div>
+
+        ${list.length === 0 ? `
+          <div class="panel-card" style="text-align:center;padding:34px;">
+            <h3>No matching gadgets found</h3>
+            <p class="section-sub">Try searching another brand, chipset, or switch back to All categories.</p>
+            <button class="btn-primary" style="margin:0 auto;" onclick="clearSearch();selectCategory('ALL')">Show All Devices</button>
+          </div>
+        ` : `<div class="product-grid">${list.map(productCardHtml).join("")}</div>`}
+      `;
+    }
+
+    function renderReviews() {
+      let list = [...getFilteredProducts()];
+      if (state.reviewSort === "rating") list.sort((a, b) => b.rating - a.rating);
+      else if (state.reviewSort === "value") list.sort((a, b) => b.scores.value - a.scores.value);
+      else list.sort((a, b) => a.priceInr - b.priceInr);
+
+      return `
+        <div class="section-header">
+          <div>
+            <h2>Raxilo Lab Reviews</h2>
+            <div class="section-sub">In-depth benchmarks, pros/cons &amp; video verdicts</div>
+          </div>
+        </div>
+        <div class="category-chips" style="margin-bottom:16px;padding-top:0;">
+          <button class="chip ${state.reviewSort === "rating" ? "active" : ""}" onclick="state.reviewSort='rating';render()">Top Rated</button>
+          <button class="chip ${state.reviewSort === "value" ? "active" : ""}" onclick="state.reviewSort='value';render()">Best Value</button>
+          <button class="chip ${state.reviewSort === "price" ? "active" : ""}" onclick="state.reviewSort='price';render()">Price: Low-High</button>
+        </div>
+        <div style="display:grid;gap:14px;">
+          ${list.map(p => `
+            <article class="panel-card" style="margin:0;">
+              <div style="display:flex;gap:14px;align-items:center;">
+                <div class="slot-thumb" style="width:86px;height:86px;flex-shrink:0;cursor:pointer;" onclick="openDetailModal('${p.id}')">
+                  ${deviceArtworkHtml(p, 64)}
+                </div>
+                <div style="flex:1;min-width:0;">
+                  <span class="brand-label">${escapeHtml(p.brand)}</span>
+                  <h3 style="cursor:pointer;" onclick="openDetailModal('${p.id}')">${escapeHtml(p.name)}</h3>
+                  ${renderStars(p.rating)}
+                  <div style="font-size:0.82rem;color:var(--blue-primary);font-weight:700;margin-top:4px;">
+                    ${formatInr(p.priceInr)} • Lab Score ${compositeScore(p)}/100
+                  </div>
+                </div>
+              </div>
+              <p style="font-size:0.86rem;color:var(--text-muted);">${escapeHtml(p.reviewSummary)}</p>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                <button class="btn-primary" style="flex:1;" onclick="openDetailModal('${p.id}')">Full Verdict &amp; Buy</button>
+                <a class="btn-outline" href="${escapeHtml(p.videoReviewUrl)}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">▶ Watch</a>
+              </div>
+            </article>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function renderCompare() {
+      const selected = state.compareIds.map(id => state.products.find(p => p.id === id)).filter(Boolean);
+      const analysis = analyzeComparison(selected);
+      const mobiles = state.products.filter(p => p.category === "MOBILES");
+
+      return `
+        <div class="section-header">
+          <div>
+            <h2>Side-by-Side Comparison</h2>
+            <div class="section-sub">Compare 2 or 3 devices across 6 core benchmarks</div>
+          </div>
+          ${mobiles.length >= 3 ? `
+            <button class="btn-outline" style="min-height:36px;" onclick="state.compareIds=['${mobiles[0].id}','${mobiles[1].id}','${mobiles[2].id}'];render()">3-Way Flagship Clash</button>
+          ` : ""}
+        </div>
+
+        ${analysis.winnerId ? `
+          <div class="verdict-banner">
+            <div class="verdict-icon">🏆</div>
+            <div>
+              <div style="font-size:0.72rem;font-weight:700;color:var(--orange);font-family:'JetBrains Mono',monospace;">RAXILO LAB VERDICT</div>
+              <div style="font-size:0.88rem;font-weight:600;">${escapeHtml(analysis.verdict)}</div>
+            </div>
+          </div>
+        ` : ""}
+
+        <div class="compare-slots">
+          ${[0, 1, 2].map(slot => {
+            const p = selected[slot];
+            if (!p) {
+              return `
+                <div class="compare-slot-card empty" onclick="openPickerModal(${slot})">
+                  <div style="width:42px;height:42px;border-radius:50%;background:var(--orange-soft);color:var(--orange);display:grid;place-items:center;font-size:1.3rem;font-weight:700;">+</div>
+                  <strong style="font-size:0.84rem;color:var(--orange);">Add Device ${slot + 1}</strong>
+                  <span style="font-size:0.74rem;color:var(--text-muted);">Tap to pick</span>
+                </div>
+              `;
+            }
+            const isWin = p.id === analysis.winnerId;
+            return `
+              <div class="compare-slot-card ${isWin ? "winner" : ""}">
+                <div class="compare-slot-top">
+                  ${isWin ? `<span class="pill pill-gold">🏆 WINNER</span>` : `<span class="pill pill-blue">${analysis.scores[p.id] || compositeScore(p)} pts</span>`}
+                  ${selected.length > 1 ? `<button onclick="toggleCompare('${p.id}')" style="font-size:0.85rem;color:var(--text-muted);" aria-label="Remove">✕</button>` : ""}
+                </div>
+                <div class="slot-thumb" onclick="openDetailModal('${p.id}')" style="cursor:pointer;">${deviceArtworkHtml(p, 58)}</div>
+                <strong style="font-size:0.88rem;cursor:pointer;" onclick="openDetailModal('${p.id}')">${escapeHtml(p.name)}</strong>
+                ${renderStars(p.rating)}
+                <button class="btn-outline" style="width:100%;min-height:34px;padding:4px 8px;font-size:0.76rem;" onclick="openPickerModal(${slot})">⇄ Swap</button>
+              </div>
+            `;
+          }).join("")}
+        </div>
+
+        ${selected.length >= 2 ? `
+          <div class="compare-matrix">
+            ${analysis.metrics.map(m => `
+              <div class="matrix-row">
+                <div class="matrix-label">${m.label}</div>
+                <div class="matrix-cells" style="grid-template-columns:repeat(${selected.length}, 1fr);">
+                  ${selected.map(p => {
+                    const isBest = analysis.metricWinners[m.key].includes(p.id);
+                    return `
+                      <div class="matrix-cell ${isBest ? "best" : ""}">
+                        ${isBest ? `<span class="best-tag">★ BEST</span>` : ""}
+                        ${escapeHtml(m.val(p))}
+                      </div>
+                    `;
+                  }).join("")}
+                </div>
+              </div>
+            `).join("")}
+          </div>
+
+          <h3 style="margin-bottom:10px;">Buy or Order Reselling Direct</h3>
+          <div class="product-grid">
+            ${selected.map(p => `
+              <div class="panel-card" style="margin:0;">
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                  <strong>${escapeHtml(p.name)}</strong>
+                  <strong style="color:var(--orange);">${formatInr(p.priceInr)}</strong>
+                </div>
+                ${affiliateButtonsHtml(p)}
+              </div>
+            `).join("")}
+          </div>
+        ` : `<div class="panel-card"><p class="section-sub">Pick at least 2 devices above to compare Display, Processor, RAM/Storage, Camera, Battery, and Price.</p></div>`}
+      `;
+    }
+
+    function renderDeals() {
+      const deals = state.products.filter(p => p.isBestDeal || discountPercent(p) > 0)
+        .sort((a, b) => discountPercent(b) - discountPercent(a));
+
+      return `
+        <section class="hero-banner" style="padding:20px;">
+          <span class="hero-tag">🏷️ DEALS &amp; RESELLING HUB</span>
+          <h2 style="font-size:1.35rem;">Direct Reselling &amp; Verified Price Drops</h2>
+          <p>Order directly via WhatsApp at exclusive reselling rates or shop verified Amazon &amp; Flipkart affiliate deals.</p>
+        </section>
+
+        <div class="product-grid">
+          ${deals.map(p => `
+            <article class="panel-card" style="margin:0;">
+              <div style="display:flex;gap:12px;align-items:center;">
+                <div class="slot-thumb" style="width:84px;height:84px;flex-shrink:0;cursor:pointer;" onclick="openDetailModal('${p.id}')">
+                  ${deviceArtworkHtml(p, 62)}
+                </div>
+                <div style="flex:1;min-width:0;">
+                  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:4px;">
+                    ${discountPercent(p) > 0 ? `<span class="pill pill-orange">${discountPercent(p)}% OFF</span>` : ""}
+                    <span class="pill pill-green">Resell Ready</span>
+                  </div>
+                  <h3 style="font-size:1rem;cursor:pointer;" onclick="openDetailModal('${p.id}')">${escapeHtml(p.brand)} ${escapeHtml(p.name)}</h3>
+                  <div style="margin-top:3px;">
+                    <strong style="color:var(--blue-primary);">${formatInr(p.priceInr)}</strong>
+                    ${p.originalPriceInr > p.priceInr ? `<span class="price-old" style="margin-left:5px;">${formatInr(p.originalPriceInr)}</span>` : ""}
+                  </div>
+                  <div style="font-size:0.78rem;color:var(--whatsapp-bg);font-weight:700;">
+                    Reselling: ${formatInr(p.resellPriceInr)} (Save ${formatInr(p.priceInr - p.resellPriceInr)})
+                  </div>
+                </div>
+              </div>
+              ${affiliateButtonsHtml(p)}
+            </article>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function renderProfile() {
+      const saved = state.products.filter(p => state.bookmarks.includes(p.id));
+      const prettyJson = JSON.stringify(state.products, null, 2);
+
+      return `
+        <div class="section-header">
+          <div>
+            <h2>Profile &amp; Admin Catalog</h2>
+            <div class="section-sub">Theme preferences, reseller WhatsApp &amp; live JSON manager</div>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <h3>Appearance</h3>
+          <div style="display:flex;gap:10px;">
+            <button class="chip ${state.theme === "dark" ? "active" : ""}" onclick="applyTheme('dark');render()">🌙 Dark Tech Mode</button>
+            <button class="chip ${state.theme === "light" ? "active" : ""}" onclick="applyTheme('light');render()">☀️ Light Mode</button>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <h3>Saved Bookmarks (${saved.length})</h3>
+          ${saved.length === 0 ? `<p class="section-sub">Tap ★ on any product card to save it here.</p>` : saved.map(p => `
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-radius:12px;background:var(--surface-elevated);cursor:pointer;" onclick="openDetailModal('${p.id}')">
+              <div><strong>${escapeHtml(p.name)}</strong> <span class="section-sub">• ${formatInr(p.priceInr)}</span></div>
+              <span style="color:var(--orange);font-weight:700;">View →</span>
+            </div>
+          `).join("")}
+        </div>
+
+        <div class="panel-card">
+          <h3>WhatsApp Reselling Business Number</h3>
+          <p class="section-sub">Set your default WhatsApp number (with country code, e.g. 919876543210) for all Reselling Order buttons.</p>
+          <input type="tel" id="waOverrideInput" class="input-field" value="${escapeHtml(state.whatsappOverride)}" placeholder="919876543210" />
+          <button class="btn-primary" style="background:var(--whatsapp-bg);" onclick="saveWhatsappOverride()">💾 Save WhatsApp Number</button>
+        </div>
+
+        <div class="panel-card">
+          <h3>Quick Add New Product</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <input id="addBrand" class="input-field" placeholder="Brand (e.g. Nothing)" />
+            <input id="addName" class="input-field" placeholder="Model Name *" />
+            <select id="addCategory" class="input-field">
+              <option value="MOBILES">Mobiles</option>
+              <option value="LAPTOPS">Laptops</option>
+              <option value="GADGETS">Gadgets</option>
+            </select>
+            <input id="addPrice" type="number" class="input-field" placeholder="Price INR *" />
+            <input id="addResell" type="number" class="input-field" placeholder="Resell Price INR" />
+            <input id="addCpu" class="input-field" placeholder="Processor" />
+            <input id="addCam" class="input-field" placeholder="Camera" />
+            <input id="addBat" class="input-field" placeholder="Battery" />
+          </div>
+          <button class="btn-primary" onclick="addQuickProduct()">+ Add Product to Catalog</button>
+        </div>
+
+        <div class="panel-card">
+          <h3>Admin JSON Catalog Editor</h3>
+          <p class="section-sub">Edit the JSON array directly to update phones, prices, or affiliate URLs.</p>
+          <textarea id="jsonEditorArea" class="textarea-field">${escapeHtml(prettyJson)}</textarea>
+          <div style="display:flex;gap:10px;">
+            <button class="btn-primary" style="flex:1;" onclick="applyJsonFromEditor()">Apply &amp; Save JSON</button>
+            <button class="btn-outline" onclick="resetCatalog()">↺ Reset Default</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function saveWhatsappOverride() {
+      const val = document.getElementById("waOverrideInput").value.replace(/\D/g, "");
+      state.whatsappOverride = val;
+      localStorage.setItem(STORAGE_KEYS.WHATSAPP, val);
+      showToast("Reselling WhatsApp number saved!");
+    }
+
+    function addQuickProduct() {
+      const brand = document.getElementById("addBrand").value.trim();
+      const name = document.getElementById("addName").value.trim();
+      const category = document.getElementById("addCategory").value;
+      const price = parseInt(document.getElementById("addPrice").value, 10);
+      const resell = parseInt(document.getElementById("addResell").value, 10) || Math.round(price * 0.93);
+      const cpu = document.getElementById("addCpu").value.trim() || "Flagship SoC";
+      const cam = document.getElementById("addCam").value.trim() || "50MP OIS Camera";
+      const bat = document.getElementById("addBat").value.trim() || "5000 mAh Fast Charge";
+
+      if (!brand || !name || !price || price <= 0) {
+        showToast("Enter Brand, Model Name, and valid Price.");
+        return;
+      }
+
+      const newProd = {
+        id: "rax-custom-" + Date.now(),
+        name,
+        brand,
+        category,
+        imageUrl: "",
+        rating: 4.7,
+        reviewCount: 1,
+        priceInr: price,
+        originalPriceInr: Math.round(price * 1.12),
+        resellPriceInr: resell,
+        isBestDeal: true,
+        tagline: `${brand} flagship with ${cpu}`,
+        specs: { display: "6.7\" 120Hz AMOLED", processor: cpu, ramStorage: "12GB RAM / 256GB", camera: cam, battery: bat },
+        scores: { display: 91, processor: 92, memory: 90, camera: 89, battery: 90, value: 93 },
+        reviewSummary: `Added via Raxilo Tech Catalog Manager.`,
+        videoReviewUrl: `https://www.youtube.com/results?search_query=${encodeURIComponent(brand + " " + name + " Review")}`,
+        pros: ["Strong value for money", "Ready for direct reselling"],
+        cons: ["Limited launch stock"],
+        amazonUrl: `https://www.amazon.in/s?k=${encodeURIComponent(brand + " " + name)}&tag=raxilotech-21`,
+        flipkartUrl: `https://www.flipkart.com/search?q=${encodeURIComponent(brand + " " + name)}&affid=raxilotech`,
+        whatsappNumber: state.whatsappOverride || "919876543210"
+      };
+
+      state.products.unshift(newProd);
+      localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(state.products));
+      showToast(`${name} added to catalog!`);
+      render();
+    }
+
+    function applyJsonFromEditor() {
+      try {
+        const parsed = JSON.parse(document.getElementById("jsonEditorArea").value);
+        if (!Array.isArray(parsed) || parsed.length === 0) throw new Error("Must be a non-empty JSON array.");
+        state.products = parsed;
+        localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(parsed));
+        showToast(`Catalog updated (${parsed.length} products)!`);
+        render();
+      } catch (err) {
+        showToast("Invalid JSON: " + err.message);
+      }
+    }
+
+    function resetCatalog() {
+      state.products = JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
+      localStorage.removeItem(STORAGE_KEYS.PRODUCTS);
+      showToast("Catalog reset to default products.");
+      render();
+    }
+
+    /* =========================================================================
+       8. MASTER RENDER
+       ========================================================================= */
+    function render() {
+      const main = document.getElementById("appMain");
+      if (state.tab === "home") main.innerHTML = renderHome();
+      else if (state.tab === "reviews") main.innerHTML = renderReviews();
+      else if (state.tab === "compare") main.innerHTML = renderCompare();
+      else if (state.tab === "deals") main.innerHTML = renderDeals();
+      else main.innerHTML = renderProfile();
+
+      const cmpCount = state.compareIds.length;
+      const dealsCount = state.products.filter(p => p.isBestDeal || discountPercent(p) > 0).length;
+
+      const hdrBadge = document.getElementById("headerCompareBadge");
+      const navBadge = document.getElementById("navCompareBadge");
+      hdrBadge.style.display = cmpCount > 0 ? "grid" : "none";
+      navBadge.style.display = cmpCount > 0 ? "block" : "none";
+      hdrBadge.textContent = cmpCount;
+      navBadge.textContent = cmpCount;
+      document.getElementById("navDealsBadge").textContent = dealsCount;
+
+      const tray = document.getElementById("compareTray");
+      const showTray = (state.tab === "home" || state.tab === "reviews") && cmpCount >= 2;
+      tray.style.display = showTray ? "flex" : "none";
+      if (showTray) {
+        document.getElementById("compareTrayText").textContent = `${cmpCount} devices ready to compare`;
+      }
+    }
+
+    render();
+  </script>
+</body>
+</html>
